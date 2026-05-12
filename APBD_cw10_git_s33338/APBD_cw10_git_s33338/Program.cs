@@ -1,4 +1,5 @@
 using APBD_cw10_git_s33338.Data;
+using APBD_cw10_git_s33338.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddScoped<IDbService, DbService>();
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
